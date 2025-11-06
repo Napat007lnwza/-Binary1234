@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🚀 Binary Fun: กุญแจสู่โลกดิจิทัล</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section id="name-screen" class="active">
+  <h1>🚀 Binary Fun: กุญแจสู่โลกดิจิทัล</h1>
+  <br><p>กรุณากรอกชื่อของคุณ</p></br>
+  <input type="text" id="username" placeholder="ชื่อของคุณ">
+  <button id="start-btn">เริ่มเกม</button>
+</section>
+
+<section id="loading-screen">
+  <div class="loader"></div>
+  <p>กำลังโหลดเกม...</p>
+</section>
+
+<section id="game-container">
+  <h2>🔢 คำถาม:</h2>
+  <div id="question"></div>
+  <div class="answers">
+    <button class="answer-btn"></button>
+    <button class="answer-btn"></button>
+    <button class="answer-btn"></button>
+    <button class="answer-btn"></button>
+  </div>
+  <p>คะแนน: <span id="score">0</span></p>
+</section>
+
+<section id="result-screen">
+  <h2>🎉 เกมจบแล้ว!</h2>
+  <p>ผู้เล่น: <span id="final-name"></span></p>
+  <p>คะแนน: <span id="final-score"></span></p>
+  <h3>อันดับสูงสุด</h3>
+  <ul id="highscore-list"></ul>
+  <button id="play-again-btn">เล่นอีกครั้ง</button>
+</section>
+
+<audio id="bg-music" src="music.mp3" loop></audio>
+
+<button id="mute-btn">🔇</button>
+
+<script src="script.js"></script>
+</body>
+</html>

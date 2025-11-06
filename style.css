@@ -1,0 +1,110 @@
+/* Reset & layout */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; background: #f4f4f9; display: flex; flex-direction: column; align-items: center; min-height: 100vh; padding: 20px; text-align: center; }
+
+/* Sections */
+section { display: none; width: 90%; max-width: 500px; margin: auto; }
+section.active { display: block; }
+
+/* Loader */
+.loader { border: 10px solid #f3f3f3; border-top: 10px solid #3498db; border-radius: 50%; width: 80px; height: 80px; margin: 50px auto; animation: spin 1s linear infinite; }
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* Inputs & Buttons */
+input[type="text"] { padding: 10px; width: 80%; max-width: 300px; font-size: 1.2rem; border-radius: 8px; border: 1px solid #ccc; text-align: center; margin-top: 10px; }
+button, .answer-btn { padding: 12px 20px; font-size: 1.1rem; border-radius: 8px; cursor: pointer; margin: 10px 0; width: 80%; max-width: 250px; }
+#start-btn { background-color: #27ae60; color: white; } 
+#start-btn:hover { background-color: #219150; }
+#play-again-btn { background-color: #f39c12; color: white; } 
+#play-again-btn:hover { background-color: #e67e22; transform: scale(1.05); }
+.answer-btn { background-color: #3498db; color: white; border: none; } 
+.answer-btn:hover { background-color: #2980b9; }
+
+/* Text */
+#question { font-size: 1.5rem; margin: 20px 0; }
+#score, #final-score { font-size: 1.3rem; font-weight: bold; }
+ul { text-align: left; padding-left: 20px; margin-top: 10px; }
+
+/* Responsive */
+@media (max-width: 400px) {
+  #question { font-size: 1.2rem; }
+  .answer-btn, button { font-size: 1rem; padding: 10px 15px; }
+}   
+#highscore-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ddd;
+  margin-top: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+#highscore-list li {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 1.1rem;
+    text-align: left;
+}
+#highscore-list li:last-child {
+    border-bottom: none; /* ไม่ต้องมีเส้นขีดที่อันสุดท้าย */
+}
+#highscore-list li.rank-gold { 
+    /* 🏆 เน้นอันดับ 1 */
+    font-weight: bold;
+    color: #b48608; /* สีทองเข้ม */
+    background-color: #fffbe6; /* สีครีม */
+}
+#highscore-list li.rank-silver { 
+    /* 🏆 เน้นอันดับ 2 */
+    background-color: #f4f6f8;
+}
+#highscore-list li.rank-bronze { 
+    /* 🏆 เน้นอันดับ 3 */
+    background-color: #fff5ed; 
+}
+.answer-btn.correct {
+    background-color: #2ecc71; /* สีเขียว */
+    color: white;
+    transform: scale(1.05); /* ขยายเล็กน้อย */
+}
+.answer-btn.incorrect {
+    background-color: #e74c3c; /* สีแดง */
+    color: white;
+    opacity: 0.7; /* ทำให้จางลงเล็กน้อย */
+}
+.answer-btn.disabled {
+    pointer-events: none; 
+}
+#mute-btn {
+  position: fixed; /* ให้อยู่กับที่ ไม่เลื่อนตาม */
+  bottom: 20px;    /* ห่างจากขอบล่าง 20px */
+  left: 20px;      /* ห่างจากขอบซ้าย 20px */
+  
+  /* ทำให้เป็นปุ่มกลม */
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem; /* ขนาดไอคอน */
+  border-radius: 50%; /* ทำให้กลม */
+
+  /* ดีไซน์ */
+  background-color: #ffffff;
+  border: 2px solid #3498db;
+  color: #3498db;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+  /* จัดไอคอนให้อยู่กลาง */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0; /* ลบ padding เดิม */
+  
+  z-index: 1000; /* ให้ปุ่มอยู่เหนือองค์ประกอบอื่น */
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+#mute-btn:hover {
+  transform: scale(1.1);
+  background-color: #f4f4f9;
+}
